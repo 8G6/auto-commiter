@@ -5,6 +5,7 @@ const {watchFile,
        readdir,
        }                   = require('fs');
 
+let dir = 'D:\\Programing\\coding\\HTML5\\basics\\matrix'
 
 async function ip4(){
     let bool = true
@@ -21,6 +22,8 @@ async function ip4(){
     
 }
 async function run(){
+
+    
     const {stdout} = await exe('dir /b')
     let arr        = stdout.split('\n').filter(n=>n)
     let out=''
