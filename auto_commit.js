@@ -23,13 +23,14 @@ async function ip4(){
 }
 async function run(){
 
+    await exe('cd '+dir)
     
-    const {stdout} = await exe(`cd ${dir} && dir /b`)
+    const {stdout} = await exe('dir /b')
     let arr        = stdout.split('\n').filter(n=>n)
     let out=''
     for(i=0;i<arr.length;i++){
         if(arr[i].split('.').length==1){
-            let {stdout} = await exe(`cd ${dir} && cd ${arr[i]} && dir /b/s`)
+            let {stdout} = await exe(`cd ${arr[i]} && dir /b/s`)
             out+=stdout.split('\n').filter(n=>n).join('\n')
             await exe('cd ..')
         }
