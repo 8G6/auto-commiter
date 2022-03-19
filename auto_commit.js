@@ -5,7 +5,6 @@ const {watchFile,
        readdir,
        }                   = require('fs');
 
-let dir = 'D:\\Programing\\coding\\HTML5\\basics\\matrix'
 
 async function ip4(){
     let bool = true
@@ -23,14 +22,12 @@ async function ip4(){
 }
 let c=0
 async function run(){
-
-    
-    const {stdout} = await exe(`cd ${dir} && dir /b`)
+    const {stdout} = await exe(`dir /b`)
     let arr        = stdout.split('\n').filter(n=>n)
     let out=''
     for(i=0;i<arr.length;i++){
         if(arr[i].split('.').length==1){
-            let {stdout} = await exe(`cd ${dir} && cd ${arr[i]} && dir /b/s`)
+            let {stdout} = await exe(`cd ${arr[i]} && dir /b/s`)
             out+=stdout.split('\n').filter(n=>n).join('\n')
             await exe('cd ..')
         }
@@ -53,8 +50,7 @@ async function run(){
                 n=n.split('\\')
                }
               catch(e){}
-                console.log(`uprepo auto-update-${n[n.length-1].length!=1 ? n[n.length-1]: n}(${curr.mtime.toString().split(' ')[4]})`)
-                const {stdout} = await exe(`uprepo auto-update-${n[n.length-1].length!=1 ? n[n.length-1]: n}(${c})`)
+                const {stdout} = await exe(`uprepo auto-update-${n[n.length-1].length!=1 ? n[n.length-1]: n}(${curr.mtime.toString().split(' ')[4]})`)
                 console.log(stdout)
             }
             else{
