@@ -11,5 +11,5 @@ node auto-commiter
 
 ## Importent
 
-auto-commiter uses a tool called uprepo get it from  <a href='https://github.com/8G6/uprepo'>here</a>
+auto-commiter uses a tool called uprepo get it from  <a href='https://github.com/8G6/uprepo'>here</a><br>
 And dont forget to add auto-commiter.js in your .gitignore
