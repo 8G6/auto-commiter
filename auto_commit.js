@@ -1,9 +1,7 @@
-let   {exec}               = require('child_process')  
-const {promisify}          = require('util')
-const exe                  = promisify(exec)
-const {watchFile,
-       readdir,
-       }                   = require('fs');
+let   {exec}       = require('child_process')  
+const {promisify}  = require('util')
+const exe          = promisify(exec)
+const {watchFile}  = require('fs');
 
 
 async function ip4(){
@@ -52,9 +50,6 @@ async function run(){
               catch(e){}
                 const {stdout} = await exe(`uprepo auto-update-${n[n.length-1].length!=1 ? n[n.length-1]: n}(${curr.mtime.toString().split(' ')[4]})`)
                 console.log(stdout)
-            }
-            else{
-                
             }
         
         });
