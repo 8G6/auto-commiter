@@ -53,7 +53,7 @@ async function run(){
                 n=n.split('\\')
                }
               catch(e){}
-                
+                console.log(`uprepo auto-update-${n[n.length-1].length!=1 ? n[n.length-1]: n}(${c})`)
                 const {stdout} = await exe(`uprepo auto-update-${n[n.length-1].length!=1 ? n[n.length-1]: n}(${c})`)
                 console.log(stdout)
             }
