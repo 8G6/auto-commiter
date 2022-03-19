@@ -21,6 +21,7 @@ async function ip4(){
     return bool
     
 }
+let c=0
 async function run(){
 
     
@@ -53,7 +54,7 @@ async function run(){
                }
               catch(e){}
                 
-                const {stdout} = await exe(`uprepo auto-update-${n[n.length-1].length!=1 ? n[n.length-1]: n}`)
+                const {stdout} = await exe(`uprepo auto-update-${n[n.length-1].length!=1 ? n[n.length-1]: n}(${c})`)
                 console.log(stdout)
             }
             else{
@@ -63,6 +64,7 @@ async function run(){
         });
         
     })
+    c++
 
 }
 
