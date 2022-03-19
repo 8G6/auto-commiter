@@ -29,7 +29,7 @@ async function run(){
     let out=''
     for(i=0;i<arr.length;i++){
         if(arr[i].split('.').length==1){
-            let {stdout} = await exe(`cd ${dir} cd ${arr[i]} && dir /b/s`)
+            let {stdout} = await exe(`cd ${dir} && cd ${arr[i]} && dir /b/s`)
             out+=stdout.split('\n').filter(n=>n).join('\n')
             await exe('cd ..')
         }
